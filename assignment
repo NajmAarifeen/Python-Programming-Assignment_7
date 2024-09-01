@@ -1,0 +1,51 @@
+# Greet user and get their name
+name = input("Hello! What's your name? ")
+
+# Ask for three favorite numbers
+print(f"Nice to meet you, {name}! Please enter your three favorite numbers.")
+numbers = []
+
+# Get three favorite numbers from the user
+for i in range(3):
+    num = input(f"Enter number {i + 1}: ")
+    numbers.append(int(num))
+
+# Check if numbers are even or odd and store them in a list of tuples
+even_odd_list = []
+for num in numbers:
+    if num % 2 == 0:
+        even_odd_list.append((num, "even"))
+    else:
+        even_odd_list.append((num, "odd"))
+
+# Display greeting and if numbers are even or odd
+print(f"\nGreat, {name}! Here is some fun information about your favorite numbers:")
+for num, eo in even_odd_list:
+    print(f"The number {num} is {eo}.")
+
+# Calculate and print squares
+print("\nLet's see the squares of your numbers:")
+for num in numbers:
+    print(f"The square of {num} is {num ** 2}.")
+
+# Calculate the sum of the numbers
+total_sum = sum(numbers)
+print(f"\nThe sum of your favorite numbers is {total_sum}.")
+
+# Check if the sum is a prime number
+is_prime = True
+if total_sum <= 1:
+    is_prime = False
+else:
+    for i in range(2, int(total_sum ** 0.5) + 1):
+        if total_sum % i == 0:
+            is_prime = False
+            break
+
+# Display if the sum is a prime number
+if is_prime:
+    print(f"Wow! The sum, {total_sum}, is a prime number.")
+else:
+    print(f"The sum, {total_sum}, is not a prime number")
+
+print(f"\nThanks for playing with numbers, {name}! Hope you had fun!")
